@@ -1,0 +1,14 @@
+<app-header [selectedCurrency$]="selectedCurrency$" (onDropdownToggle)="toggleDropgown()"></app-header>
+<main class="main">
+  <div class="content">
+    <app-status-bar></app-status-bar>
+    <div class="graph">
+      <app-graph [nav]="nav"></app-graph>
+    </div>
+  </div>
+  <div class="sidebar" *ngIf="nav[0]">
+    <app-side-bar></app-side-bar>
+  </div>
+    <app-dropdown (selectedItem)="onSelectCurrency($event)" [isDropdownVisible]="isDropdownVisible"></app-dropdown>
+    <app-nav (onNavigate)="navigate($event)"></app-nav>
+</main>

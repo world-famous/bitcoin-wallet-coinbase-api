@@ -1,0 +1,13 @@
+<header class="header">
+  <div class="container">
+    <div class="header__logo"></div>
+    <div class="header__currency" (click)="toggleDropdown()">
+      <span class="header__currency-control"></span>
+      <span class="header__currency-text">{{(selectedCurrency$ | async)?.title}}</span>
+      <span class="header__currency-arrow"></span>
+    </div>
+    <div class="header__button">
+      <a href="" class="header__button-link">Sing In</a>
+    </div>
+  </div>
+</header>

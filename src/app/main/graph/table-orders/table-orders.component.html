@@ -1,0 +1,89 @@
+<div class="table">
+  <div class="table-order" *ngIf="enableToggler && tablesToggler || !enableToggler">
+    <div class="table-header">
+      <div class="table-header__title">Order Book</div>
+      <ul class="table-header__control">
+        <li class="table-header__control-item" [class.active]="tablesToggler" (click)="tablesToggler = !tablesToggler">Order Book</li>
+        <li class="table-header__control-item" [class.active]="!tablesToggler" (click)="tablesToggler = !tablesToggler">Trade History</li>
+      </ul>
+    </div>
+    <div class="table-content">
+      <div class="table-content__row heading">
+        <div class="table-content__col">
+          Market Size
+        </div>
+        <div class="table-content__col">
+          Price (EUR)
+        </div>
+        <div class="table-content__col">
+          My Size
+        </div>
+      </div>
+      <div class="table-content__row" *ngFor="let row of ordersTable1">
+        <div class="table-content__col">
+          {{row.marketSize}}
+        </div>
+        <div class="table-content__col" [ngClass]="row.priceColor">
+          {{row.price}}
+        </div>
+        <div class="table-content__col">
+          {{row.mySize}}
+        </div>
+      </div>
+      <div class="table-content__row heading">
+        <div class="table-content__col">
+          EUR Spread
+        </div>
+        <div class="table-content__col">
+          0.04
+        </div>
+        <div class="table-content__col"></div>
+      </div>
+      <div class="table-content__row" *ngFor="let row of ordersTable2">
+        <div class="table-content__col">
+          {{row.marketSize}}
+        </div>
+        <div class="table-content__col" [ngClass]="row.priceColor">
+          {{row.price}}
+        </div>
+        <div class="table-content__col">
+          {{row.mySize}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="table-trade" *ngIf="enableToggler && !tablesToggler">
+    <div class="table-header">
+      <div class="table-header__title">Trade History</div>
+      <ul class="table-header__control">
+        <li class="table-header__control-item" [class.active]="tablesToggler" (click)="tablesToggler = !tablesToggler">Order Book</li>
+        <li class="table-header__control-item" [class.active]="!tablesToggler" (click)="tablesToggler = !tablesToggler">Trade History</li>
+      </ul>
+    </div>
+    <div class="table-content">
+      <div class="table-content__row heading">
+        <div class="table-content__col">
+          Trade Size
+        </div>
+        <div class="table-content__col">
+          Price (EUR)
+        </div>
+        <div class="table-content__col">
+          Time
+        </div>
+      </div>
+      <div class="table-content__row" *ngFor="let row of tradesTable">
+        <div class="table-content__col">
+          {{row.tradeSize}}
+        </div>
+        <div class="table-content__col" [ngClass]="row.priceDynamic">
+          {{row.price}}
+        </div>
+        <div class="table-content__col dark">
+          {{row.time}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

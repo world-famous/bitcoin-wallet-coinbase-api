@@ -1,0 +1,108 @@
+<div class="side">
+
+  <div class="side-login">
+    <div class="side-login__button">
+      <a href="" class="side-login__button-link">Sign in</a>
+    </div>
+    <div class="side-login__text">or</div>
+    <div class="side-login__button">
+      <a href="" class="side-login__button-link">Create account</a>
+    </div>
+  </div>
+
+  <div class="side-order">
+    <div class="side-order__title">Order Form</div>
+    <div class="side-order__controls">
+      <div class="side-order__control" [class.green]="buttons[0]" (click)="clickButton(0)">
+        <div class="side-order__control-link">Buy</div>
+      </div>
+      <div class="side-order__control" [class.red]="buttons[1]" (click)="clickButton(1)">
+        <div class="side-order__control-link">Sell</div>
+      </div>
+    </div>
+  </div>
+
+  <ul class="side-tabs">
+    <li class="side-tabs__control side-tabs__control" [class.active]="tabs[0]" (click)="selectTab(0)">Market</li>
+    <li class="side-tabs__control" [class.active]="tabs[1]" (click)="selectTab(1)">Limit</li>
+    <li class="side-tabs__control" [class.active]="tabs[2]" (click)="selectTab(2)">Stop</li>
+  </ul>
+
+  <div class="side-form" *ngIf="tabs[0]">
+    <div class="side-form__label">Amount</div>
+    <div class="side-form__input">
+      <div class="side-form__input-field">
+        <div class="side-form__input-placeholder">Max</div>
+        <div class="side-form__input-value">0.00</div>
+      </div>
+      <div class="side-form__input-currency">EUR</div>
+    </div>
+  </div>
+
+  <div class="side-form" *ngIf="tabs[1]">
+    <div class="side-form__label">Amount</div>
+    <div class="side-form__input">
+      <div class="side-form__input-field">
+        <div class="side-form__input-placeholder">Max</div>
+        <div class="side-form__input-value">0.00</div>
+      </div>
+      <div class="side-form__input-currency">ETC</div>
+    </div>
+    <div class="side-form__label">Limit Price</div>
+    <div class="side-form__input">
+      <div class="side-form__input-field end">
+        <div class="side-form__input-value">0.00</div>
+      </div>
+      <div class="side-form__input-currency">EUR</div>
+    </div>
+    <div class="side-form__label">Execution</div>
+    <div class="side-form__stripe">
+      <div class="side-form__stripe-item" [class.active]="executionToggler" (click)="executionToggler = !executionToggler">Post Only</div>
+      <div class="side-form__stripe-item" [class.active]="!executionToggler" (click)="executionToggler = !executionToggler">Allow Taker</div>
+    </div>
+    <div class="side-form__notify">Your order may execute as a maker order or taker order. Learn more</div>
+  </div>
+
+  <div class="side-form" *ngIf="tabs[2]">
+    <div class="side-form__label">Amount</div>
+    <div class="side-form__input">
+      <div class="side-form__input-field">
+        <div class="side-form__input-placeholder">Max</div>
+        <div class="side-form__input-value">0.00</div>
+      </div>
+      <div class="side-form__input-currency">EUR</div>
+    </div>
+    <div class="side-form__label">Stop Price</div>
+    <div class="side-form__input">
+      <div class="side-form__input-field end">
+        <div class="side-form__input-value">0.00</div>
+      </div>
+      <div class="side-form__input-currency">EUR</div>
+    </div>
+    <div class="side-form__label alone" (click)="advanced = !advanced">Advanced</div>
+    <div class="side-form__label" *ngIf="advanced">Limit Price</div>
+    <div class="side-form__input" *ngIf="advanced">
+      <div class="side-form__input-field end">
+        <div class="side-form__input-value">0.00</div>
+      </div>
+      <div class="side-form__input-currency">EUR</div>
+    </div>
+  </div>
+
+  <ul class="side-list">
+    <li class="side-list__item">
+      <div class="side-list__item-title">Free (EUR) =</div>
+      <div class="side-list__item-value">€0.00</div>
+    </li>
+    <li class="side-list__item">
+      <div class="side-list__item-title">Total (ETC) =</div>
+      <div class="side-list__item-value">⟠0.00000000</div>
+    </li>
+  </ul>
+
+  <div class="container">
+    <div class="side-button" [class.green]="buttons[0]" [class.red]="buttons[1]">
+      <a href="" class="side-button__link">Place buy order</a>
+    </div>
+  </div>
+</div>

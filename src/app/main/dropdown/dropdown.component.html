@@ -1,0 +1,27 @@
+<div class="dropdown" [class.visible]="isDropdownVisible">
+  <div class="dropdown-search">
+    <input type="text" />
+  </div>
+
+  <div class="dropdown-group" *ngFor="let group of items">
+    <div class="dropdown-group__title">{{group.title}}</div>
+
+    <div class="dropdown-group__item" *ngFor="let item of group.groups" (click)="selectItem(item)">
+      <div class="dropdown-group__item-left">
+        <div class="logo">
+          <img [src]="item.logo" alt="">
+        </div>
+        <div class="title">
+          <div class="currency">{{item.title}}</div>
+          <div class="description">{{item.description}}</div>
+        </div>
+      </div>
+      <div class="dropdown-group__item-center">
+        <img [src]="item.chart" alt="">
+      </div>
+      <div class="dropdown-group__item-right">
+        <div class="value">{{item.value}}</div>
+        <div class="dynamic" [class.green]="item.dynamicDirection" [class.red]="!item.dynamicDirection">{{item.dynamic}}</div>
+    </div>
+  </div>
+</div>

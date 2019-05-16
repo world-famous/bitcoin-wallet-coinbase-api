@@ -1,0 +1,14 @@
+:host {
+
+  .graph {
+    overflow-y: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-wrap: wrap;
+
+    @media (min-width: 1366px) {
+      justify-content: flex-start;
+    }
+  }
+}

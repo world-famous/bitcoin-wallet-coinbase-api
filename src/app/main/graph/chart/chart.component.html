@@ -1,0 +1,11 @@
+<div class="chart">
+  <div class="chart-header">
+    <div class="chart-header__title">Price Chart</div>
+    <ul class="chart-header__control">
+      <li class="chart-header__control-item" [class.active]="chartToggler" (click)="chartToggler = !chartToggler">Price Chart</li>
+      <li class="chart-header__control-item" [class.active]="!chartToggler" (click)="chartToggler = !chartToggler">Depth Chart</li>
+    </ul>
+  </div>
+  <div class="chart-image" *ngIf="chartToggler"></div>
+  <div class="chart-image--desktop" *ngIf="!chartToggler"></div>
+</div>
